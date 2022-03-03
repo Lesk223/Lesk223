@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1071628933143",
+    "project_id": "clicker-768c1",
+    "storage_bucket": "clicker-768c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071628933143:android:5b8374d1595010f58a2452",
+        "android_client_info": {
+          "package_name": "com.example.basedaya"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1071628933143-nl6dlfgh1o7h0rknhg3acl940bve6qmr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDszV9RQZZ9yd_JOfVntWVyNEVWlo-Gyp4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1071628933143-nl6dlfgh1o7h0rknhg3acl940bve6qmr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
