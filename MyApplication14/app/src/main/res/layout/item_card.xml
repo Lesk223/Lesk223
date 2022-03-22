@@ -2,17 +2,17 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="150dp"
-    android:layout_height="150dp"
+    android:layout_width="200dp"
+    android:layout_height="200dp"
     android:layout_marginLeft="5sp"
     android:layout_marginTop="5sp"
     android:layout_marginRight="5sp"
     android:layout_marginBottom="5sp"
-    app:cardBackgroundColor="#FAF5F5">
+    app:cardBackgroundColor="#696969">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="200dp"
+        android:layout_height="200dp">
 
         <Button
             android:id="@+id/button4"
@@ -26,30 +26,41 @@
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
-            android:id="@+id/textView4"
-            android:layout_width="97dp"
-            android:layout_height="22dp"
+            android:id="@+id/textName"
+            android:layout_width="166dp"
+            android:layout_height="32dp"
+            android:gravity="center"
             android:text="150 bc"
             android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.648" />
+            app:layout_constraintVertical_bias="0.567" />
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="150dp"
-            android:layout_height="83dp"
+            android:layout_width="194dp"
+            android:layout_height="89dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.313"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_bias="0.008"
             app:srcCompat="@drawable/videocart" />
+
+        <TextView
+            android:id="@+id/textOwner"
+            android:layout_width="100dp"
+            android:layout_height="29dp"
+            android:layout_marginBottom="36dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textName" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

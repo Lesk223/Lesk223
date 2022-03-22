@@ -7,37 +7,37 @@
     android:background="@color/black"
     tools:context=".NftShop">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
-        android:layout_width="409dp"
-        android:layout_height="639dp"
+        android:layout_width="402dp"
+        android:layout_height="590dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.321"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
-        app:layout_constraintVertical_bias="0.515" />
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
         android:layout_width="410dp"
-        android:layout_height="74dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
         android:padding="10dp"
         android:scrollbarThumbHorizontal="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <com.google.android.material.chip.ChipGroup
             android:layout_width="203dp"
-            android:layout_height="173dp"
+            android:layout_height="100dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -113,5 +113,32 @@
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
 
+    <TextView
+        android:id="@+id/points"
+        android:layout_width="173dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="188dp"
+        android:text="TextView"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/recycler"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/recycler"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:boxStrokeColor="@color/selector_hint_text_color"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:startIconContentDescription="@string/Clicker">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="323dp"
+            android:layout_height="91dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

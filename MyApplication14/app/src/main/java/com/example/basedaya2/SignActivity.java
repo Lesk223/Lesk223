@@ -1,43 +1,37 @@
 package com.example.basedaya2;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
+import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.basedaya2.ResetPass;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class SignActivity extends AppCompatActivity  {
     private FirebaseAuth mAuth;
     private static final String TAG="SignActivity1";
-    private EditText Email;
-    private EditText Pass;
     private TextView Signup;
     private Button button;
+    private TextInputLayout Pass,Email;
     FirebaseDatabase Userdatabase;
     DatabaseReference useData;
     @Override
@@ -45,26 +39,53 @@ public class SignActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         init();
         span();
+        inputText();
         loginClick();
     }
     private void init() {
-        setContentView(R.layout.activity_sign);
+        setContentView(R.layout.newsign);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         mAuth = FirebaseAuth.getInstance();
-        Email = findViewById(R.id.Login);
-        Pass = findViewById(R.id.Password);
-
+        Email=(TextInputLayout) findViewById(R.id.LoginRegister);
+       Pass=(TextInputLayout) findViewById(R.id.PassRegister);
         button = findViewById(R.id.button3);
         Signup = findViewById(R.id.textView3);
         Userdatabase = FirebaseDatabase.getInstance("https://clicker-768c1-default-rtdb.europe-west1.firebasedatabase.app");
         useData = Userdatabase.getReference();
     }
+    private void inputText(){
+
+         Pass.getEditText().addTextChangedListener(new TextWatcher() {
+             @Override
+             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+             }
+
+             @Override
+             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                 if (s.length() == 0 ) {
+                     Pass.setError("password is required");
+                     Pass.setErrorEnabled(true);
+                 } else if (s.length() < 6 ) {
+                     Pass.setError("password must be at least 6 character");
+                     Pass.setErrorEnabled(true);
+                 } else {
+                     Pass.setErrorEnabled(false);
+                 }
+             }
+
+             @Override
+             public void afterTextChanged(Editable s) {
+
+             }
+         });
+    }
     public void loginClick(){
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (Email.getText().length() > 0 && Pass.getText().length() > 0) {
-                    loginSignUp(Email.getText().toString().trim(), Pass.getText().toString().trim());
+                if (Email.getEditText().length()>0 && Pass.getEditText().length()>5) {
+                    loginSignUp(Email.getEditText().toString().trim(), Pass.getEditText().toString().trim());
                 } else {
                     String toastMessage = "Username or Password are not populated";
                     Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_SHORT).show();}}});

@@ -37,7 +37,6 @@ public class ShopActivity extends AppCompatActivity {
         init();
         getFirstData();
         clickShop();
-        //dataS();
     }
 
 
@@ -53,12 +52,8 @@ public class ShopActivity extends AppCompatActivity {
         Intent intent = getIntent();
         points=intent.getIntExtra("points",0);
         txt.setText(String.valueOf(points));
-//boost=user.getBoost();
         uID = intent.getStringExtra("uID");
         boost=intent.getIntExtra("boost",1);
-        //points=user.getPoints();
-        //buyButton3.setText(String.valueOf(useData.child("user")
-        //price1070=300*shopInfo.getVideo1070();
     }
     public void clickShop() {
         buyButton1.setOnClickListener(new View.OnClickListener() {
@@ -71,12 +66,7 @@ public class ShopActivity extends AppCompatActivity {
                                                   boost+=1;
                                                   price1060 = 150 * shopInfo.getVideo1060();
                                                   buyButton1.setText(String.valueOf(price1060));
-                                              }
-                                              //useData.child("user").child(uID).child("info").setValue(user);
-                                              //useData.child("user").child(uID).child("videocard").child("video1060").setValue(shopInfo.getVideo1060());
-
-                                              // useData.child("user").child(uID).child("video").setValue(shopInfo);
-                                              else
+                                              } else
                                                   Toast.makeText(ShopActivity.this, "need  " + String.valueOf(price1060 - points) + " btc", Toast.LENGTH_SHORT).show();
                                           }
                                       });
@@ -92,8 +82,6 @@ public class ShopActivity extends AppCompatActivity {
                     price1070 = 300 * shopInfo.getVideo1070();
                     buyButton2.setText(String.valueOf(price1070));
                     user.setPoints(points);
-                    // useData.child("user").child(uID).child("info").setValue(user);
-                    //    useData.child("user").child(uID).child("videocard").child("1070").setValue(shopInfo.getVideo1070());
                 } else {
                     Toast.makeText(ShopActivity.this, "need  " + String.valueOf(price1070 - points) + " btc", Toast.LENGTH_SHORT).show();
 
@@ -111,8 +99,6 @@ public class ShopActivity extends AppCompatActivity {
                     price1080 = 500 * shopInfo.getVideo1080();
                     buyButton3.setText(String.valueOf(price1080));
                     user.setPoints(points);
-                    // useData.child("user").child(uID).child("info").setValue(user);
-                    //    useData.child("user").child(uID).child("videocard").child("1070").setValue(shopInfo.getVideo1070());
                 } else {
                     Toast.makeText(ShopActivity.this, "need  " + String.valueOf(price1080 - points) + " btc", Toast.LENGTH_SHORT).show();
 
@@ -175,45 +161,11 @@ public class ShopActivity extends AppCompatActivity {
                         price1080=500;
                         buyButton3.setText(String.valueOf(price1080));
                         }}}});}
-  /*
-    public void dataS() {
 
-        ValueEventListener postListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // Get Post object and use the values to update the UI
-                user = dataSnapshot.child("user").child(uID).child("info").getValue(User.class);
-                //  shopInfo = dataSnapshot.child("user").child(uID).child("video").getValue(User2.class);
-                shopInfo=dataSnapshot.child("user").child(uID).child("video").getValue(User2.class);
-                //shopInfo = dataSnapshot.child("user").child(uID).child("videocard").getValue(ShopInfo.class);
-                // if (shopInfo.getVideo1060()!=null) {
-                boost=user.getBoost();
-                points = user.getPoints();  //   shopInfo = dataSnapshot.child("user").child(uID).child("videocard").getValue(ShopInfo.class);
-                // count1060 = shopInfo.getVideo1060();
-                if (count1070!=null) {
-                    count1070 = shopInfo.getVideo1070();
-                    price1070 = count1070 * 150;
-                    buyButton3.setText(String.valueOf(shopInfo.getVideo1070()));
-                    buyButton2.setText(String.valueOf(price1070));
-                }
-//                Log.d("hiw",String.valueOf(shopInfo.getVideo1060()));
-                //
-//                Log.d("hi", String.valueOf(shopInfo.getVideo1060()));
-                // price1060 = count1060 * 150;
-
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
-            }
-        };
-        useData.addValueEventListener(postListener);
-    }
-*/
-    public void BackButton(View view) {
-useData.child("user").child(uID).child("video").setValue(shopInfo);
+    @Override
+    protected void onPause() {
+        super.onPause();
+    useData.child("user").child(uID).child("video").setValue(shopInfo);
 useData.child("user").child(uID).child("info").child("points").setValue(points);
 useData.child("user").child(uID).child("info").child("boost").setValue(boost);
 Intent intent2 = new Intent(this,MainActivity.class);

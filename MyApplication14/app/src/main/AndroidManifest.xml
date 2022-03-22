@@ -11,13 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BaseDAYA">
         <activity
+            android:name=".GalleryActivity"
+            android:exported="false" />
+        <activity
             android:name=".Register"
             android:exported="false" />
         <activity
             android:name=".ResetPass"
             android:exported="false" />
         <activity
-            android:name=".SignActivity"
+            android:name=".NftShop"
             android:exported="false" />
         <activity
             android:name=".ShopActivity"
@@ -26,7 +29,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".NftShop"
+            android:name=".SignActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

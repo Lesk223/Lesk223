@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     static Integer summary,boost;
     private Integer count, startPoint,count1060;
-    private String uID, email;
+     String uID, email;
     private TextView couter, txt, goal;
     private SharedPreferences settings;
     private boolean ImageBool = false;
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init(); getFirstData();
-getBoostData();
+        getBoostData();
         mainButtonClick();
         mainBitAnimation();
         secCount();
@@ -77,7 +77,7 @@ getBoostData();
         ImageView = findViewById(R.id.imageView4);
         goal = findViewById(R.id.Goal);
         user.setEmail(email);
-       // point.child("user").child(uID).child("videocard").child("1060").setValue(1);
+        // point.child("user").child(uID).child("videocard").child("1060").setValue(1);
 
         user.setId(uID);
         mediaPlayer = MediaPlayer.create(this, R.raw.click);
@@ -97,8 +97,8 @@ getBoostData();
                             @Override
                             public void run() {
                                 if (resume==true) {
-   //                                 Intent intent2=getIntent();
- //                                   user.setBoost(intent2.getIntExtra("sam",1));
+                                    //                                 Intent intent2=getIntent();
+                                    //                                   user.setBoost(intent2.getIntExtra("sam",1));
                                     Log.d("Fast",String.valueOf(user.getBoost()));
                                     //user.setVideo1060(count1060);
                                     //boost=user.getBoost();
@@ -107,12 +107,12 @@ getBoostData();
                                     user.getBoost();
                                     summary = summary + boost;
                                     user.setPoints(summary);
-                                        couter.setText(String.valueOf(summary));
+                                    couter.setText(String.valueOf(summary));
 
                                     //point.child("user").child(uID).child("info").setValue(user);
-                                       // point.child("user").child(uID).setValue(user);
-                                    }
+                                    // point.child("user").child(uID).setValue(user);
                                 }
+                            }
                         });
                     }
                 } catch (InterruptedException e) {
@@ -169,7 +169,7 @@ getBoostData();
                         Log.d("cool", String.valueOf(startPoint));
                         user.setPoints(startPoint);
                         //user.setVideo1060(user.getVideo1060());
-                      //  user.setBoost(user.getBoost());
+                        //  user.setBoost(user.getBoost());
 
                         couter.setText(String.valueOf(user.getPoints()));
                     } else {
@@ -197,7 +197,7 @@ getBoostData();
                         //couter.setText(String.valueOf(user.getPoints()));
                     } else {
                         user.setBoost(1);
-                       // couter.setText("0");
+                        // couter.setText("0");
                     }
                 }
             }
@@ -218,12 +218,12 @@ getBoostData();
 
         getBoostData();
         Intent intent= getIntent();
-       boost= intent.getIntExtra("sam",1);
+        boost= intent.getIntExtra("sam",1);
         user.setPoints(startPoint);
         Log.d("coool",String.valueOf(boost));
         resume=true;
 
-     //   Log.d("vid",String.valueOf(user.getVideo1060()));
+        //   Log.d("vid",String.valueOf(user.getVideo1060()));
 
 
     }
@@ -236,12 +236,14 @@ getBoostData();
         intentShop.putExtra("points", user.getPoints());
         intentShop.putExtra("boost",boost);
         startActivity(intentShop);
-      //  finish();
+        //  finish();
 
     }
 
     public void NftEnter(View view) {
         Intent intentNFT = new Intent(MainActivity.this,NftShop.class);
+        intentNFT.putExtra("uID",uID);
+        intentNFT.putExtra("point",user.getPoints());
         startActivity(intentNFT);
     }
 }

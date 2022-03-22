@@ -4,6 +4,6 @@ import android.view.View;
 import android.widget.TextView;
 
 public interface ItemClickListener {
-    void onClick (View view, String name);
+    void onClick (View view, String name,Integer price,String Uri);
 
 }

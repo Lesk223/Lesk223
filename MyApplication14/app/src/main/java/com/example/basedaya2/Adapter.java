@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,7 +37,12 @@ return new ViewHolder(view);
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-holder.textView.setText(imageLists.get(position).getName());
+holder.button.setText(String.valueOf(imageLists.get(position).getPrice()));
+        holder.textView.setText(imageLists.get(position).getName());
+        holder.ownerText.setText("owner  "+imageLists.get(position).getOwner());
+        if(imageLists.get(position).getOwner()!=" "){holder.button.setEnabled(false);
+        holder.button.setBackgroundColor(0xFFFFFF00);}else{holder.button.setEnabled(true);
+        holder.button.setBackgroundColor(0xFFFFFFFF);}
 Picasso.get().load(imageLists.get(position).getUri()).into(holder.imageView);
     }
 
@@ -50,18 +54,19 @@ Picasso.get().load(imageLists.get(position).getUri()).into(holder.imageView);
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
       ImageView imageView;
       TextView textView;
+      TextView ownerText;
       Button button;
         public ViewHolder (View view){
             super(view);
+            ownerText=view.findViewById(R.id.textOwner);
             button=view.findViewById(R.id.button4);
             imageView=(ImageView) view.findViewById(R.id.imageView3);
-            textView=(TextView) view.findViewById(R.id.textView4);
+            textView=(TextView) view.findViewById(R.id.textName);
         button.setOnClickListener(this);
         }
-
         @Override
         public void onClick(View view) {
-            itemClickListener.onClick(view,imageLists.get(getAdapterPosition()).getName());
+            itemClickListener.onClick(view,imageLists.get(getAdapterPosition()).getName(),imageLists.get(getAdapterPosition()).getPrice(),imageLists.get(getAdapterPosition()).getUri());
         }
     }
 

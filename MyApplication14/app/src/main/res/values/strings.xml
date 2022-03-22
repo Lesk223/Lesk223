@@ -1,3 +1,10 @@
 <resources>
     <string name="Clicker">Кликер</string>
+    <string name="password">password</string>
+    <string name="email">Email</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="hi">hi</string>
+    <string name="log_in">Log in</string>
+    <string name="username">Username</string>
+    <string name="register">Register</string>
 </resources>
