@@ -85,7 +85,7 @@ public class SignActivity extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
                 if (Email.getEditText().length()>0 && Pass.getEditText().length()>5) {
-                    loginSignUp(Email.getEditText().toString().trim(), Pass.getEditText().toString().trim());
+                    loginSignUp(Email.getEditText().getText().toString().trim(), Pass.getEditText().getText().toString().trim());
                 } else {
                     String toastMessage = "Username or Password are not populated";
                     Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_SHORT).show();}}});

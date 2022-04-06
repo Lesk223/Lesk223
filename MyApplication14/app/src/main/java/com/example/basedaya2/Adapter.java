@@ -1,5 +1,7 @@
 package com.example.basedaya2;
 
+import static com.example.basedaya2.R.drawable.card;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,12 +39,18 @@ return new ViewHolder(view);
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-holder.button.setText(String.valueOf(imageLists.get(position).getPrice()));
+holder.priceText.setText(String.valueOf(" "+imageLists.get(position).getPrice()));
         holder.textView.setText(imageLists.get(position).getName());
-        holder.ownerText.setText("owner  "+imageLists.get(position).getOwner());
-        if(imageLists.get(position).getOwner()!=" "){holder.button.setEnabled(false);
-        holder.button.setBackgroundColor(0xFFFFFF00);}else{holder.button.setEnabled(true);
-        holder.button.setBackgroundColor(0xFFFFFFFF);}
+        holder.ownerText.setText(imageLists.get(position).getOwner());
+        if(imageLists.get(position).getOwner()!=null){
+            holder.button.setEnabled(false);
+            holder.button.setVisibility(View.INVISIBLE);
+            holder.text.setVisibility(View.VISIBLE);
+       }
+        else{holder.button.setEnabled(true);
+            holder.button.setVisibility(View.VISIBLE);
+            holder.text.setVisibility(View.INVISIBLE);
+        }
 Picasso.get().load(imageLists.get(position).getUri()).into(holder.imageView);
     }
 
@@ -53,17 +61,19 @@ Picasso.get().load(imageLists.get(position).getUri()).into(holder.imageView);
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
       ImageView imageView;
-      TextView textView;
+      TextView textView,priceText,text;
       TextView ownerText;
       Button button;
         public ViewHolder (View view){
             super(view);
-            ownerText=view.findViewById(R.id.textOwner);
+            ownerText=view.findViewById(R.id.OwnerCard);
+            priceText=view.findViewById(R.id.PriceCard);
             button=view.findViewById(R.id.button4);
             imageView=(ImageView) view.findViewById(R.id.imageView3);
-            textView=(TextView) view.findViewById(R.id.textName);
+            textView=(TextView) view.findViewById(R.id.textOwner);
+            text=(TextView)view.findViewById(R.id.TextCARD);
         button.setOnClickListener(this);
-        }
+             }
         @Override
         public void onClick(View view) {
             itemClickListener.onClick(view,imageLists.get(getAdapterPosition()).getName(),imageLists.get(getAdapterPosition()).getPrice(),imageLists.get(getAdapterPosition()).getUri());

@@ -7,4 +7,13 @@
     <string name="log_in">Log in</string>
     <string name="username">Username</string>
     <string name="register">Register</string>
+    <string name="other">Other</string>
+    <string name="music">Music</string>
+    <string name="premium">Premium</string>
+    <string name="art">Art</string>
+    <string name="top">TOP</string>
+    <string name="sport">Sport</string>
+    <string name="search_nft">Search NFT</string>
+    <string name="My">My</string>
+    <string name="my_nft">My NFT</string>
 </resources>

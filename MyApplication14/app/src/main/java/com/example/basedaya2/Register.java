@@ -86,7 +86,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            useData.child("user").child(mAuth.getUid()).child("Username").setValue(String.valueOf(name.getEditText()));
+                            useData.child("user").child(mAuth.getUid()).child("Username").setValue(String.valueOf(name.getEditText().getText()));
                             Toast.makeText(Register.this, "Sucsess", Toast.LENGTH_SHORT).show();
                             finish();
                             // updateUI(user);
@@ -104,7 +104,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View view) {
         if (name.getEditText().length()<9 &&email.getEditText().length() > 0 && password.getEditText().length() > 5) {
-            registerS(email.getEditText().toString().trim(), password.getEditText().toString().trim());
+            registerS(email.getEditText().getText().toString().trim(), password.getEditText().getText().toString().trim());
         } else {
             String toastMessage = "Username or Password are not populated";
             Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_SHORT).show();

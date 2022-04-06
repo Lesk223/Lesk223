@@ -2,65 +2,129 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="200dp"
-    android:layout_height="200dp"
+    android:layout_width="190dp"
+    android:layout_height="250dp"
     android:layout_marginLeft="5sp"
     android:layout_marginTop="5sp"
     android:layout_marginRight="5sp"
     android:layout_marginBottom="5sp"
-    app:cardBackgroundColor="#696969">
+    app:cardBackgroundColor="#696969"
+    app:cardCornerRadius="15dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="200dp"
-        android:layout_height="200dp">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        style="@style/Widget.Material3.CardView.Outlined"
+        app:strokeColor="@color/orange"
+        app:strokeWidth="3dp"
+        app:cardCornerRadius="15dp"
+        app:cardBackgroundColor="@color/black"
+        android:outlineAmbientShadowColor="@color/white"
+        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="92dp"
-            android:layout_height="38dp"
-            android:text="Button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textName"
-            android:layout_width="166dp"
-            android:layout_height="32dp"
-            android:gravity="center"
-            android:text="150 bc"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.567" />
+            <TextView
+                android:id="@+id/OwnerCard"
+                android:layout_width="96dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
+                android:text="150 bc"
+                android:textColor="@color/gray"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/PriceCard" />
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="194dp"
-            android:layout_height="89dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.313"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.008"
-            app:srcCompat="@drawable/videocart" />
 
-        <TextView
-            android:id="@+id/textOwner"
-            android:layout_width="100dp"
-            android:layout_height="29dp"
-            android:layout_marginBottom="36dp"
-            android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textName" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/Textiche"
+                android:layout_width="81dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:text="Price"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@color/gray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textOwner"/>
+            <TextView
+                android:id="@+id/PriceCard"
+                android:layout_width="94dp"
+                android:layout_height="27dp"
+                android:drawableStart="@drawable/ic_vectorbit"
+                android:layout_marginTop="4dp"
+                android:gravity="left"
+                android:layout_marginEnd="3dp"
+                android:text="5"
+                android:textColor="@color/gray"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textOwner" />
+
+            <TextView
+                android:id="@+id/textOwner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="Name"
+                android:textColor="@color/gray"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3"
+                tools:layout_editor_absoluteX="8dp" />
+
+            <TextView
+                android:id="@+id/TextCARD"
+                android:layout_width="78dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="4dp"
+
+                android:layout_marginTop="4dp"
+                android:text="Owner"
+                android:textColor="@color/gray"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Textiche" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="184dp"
+                android:layout_height="109dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/videocart" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="104dp"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/orange"
+                android:gravity="center"
+                android:text="Buy"
+                android:textColor="@color/black"
+                app:icon="@drawable/ic_baseline_shopping_cart_24"
+                app:iconTint="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textOwner"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.cardview.widget.CardView>

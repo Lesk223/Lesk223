@@ -1,11 +1,9 @@
 package com.example.basedaya2;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -49,10 +47,10 @@ holder.textView.setText(imageLists.get(position).getName());
         TextView price;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            price=itemView.findViewById(R.id.textOwner);
+            price=itemView.findViewById(R.id.TextCARD);
             button=itemView.findViewById(R.id.button4);
             imageView=(ImageView) itemView.findViewById(R.id.imageView3);
-            textView=(TextView) itemView.findViewById(R.id.textName);
+            textView=(TextView) itemView.findViewById(R.id.OwnerCard);
 
         }
     }
