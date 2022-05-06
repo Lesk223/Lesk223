@@ -68,6 +68,6 @@ class StartFragment : Fragment() {
             ItemTouchHelper.attachToRecyclerView()
         }
 
-        }
+        }//as
 
 }
