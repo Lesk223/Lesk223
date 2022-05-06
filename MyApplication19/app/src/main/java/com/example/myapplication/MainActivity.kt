@@ -16,6 +16,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         APP=this
         navController=Navigation.findNavController(this,R.id.nav_fragment)
-
+/.t
     }
 }
