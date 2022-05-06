@@ -4,23 +4,36 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MenuItem {
-    int FoodImage;
+    String  FoodImage;
    String FoodTitle;
-   int Index;
+   int Price;
+   int Quantity;
    String FoodDescription;
 
-    public MenuItem(int foodImage, String foodTitle, String foodDescription) {
+    public MenuItem(String  foodImage, String foodTitle, String foodDescription) {
         FoodImage = foodImage;
         FoodTitle = foodTitle;
         FoodDescription = foodDescription;
     }
 
-    public int getIndex() {
-        return Index;
+    public MenuItem() {
+
     }
 
-    public void setIndex(int index) {
-        Index = index;
+    public int getQuantity() {
+        return Quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        Quantity = quantity;
+    }
+
+    public int getPrice() {
+        return Price;
+    }
+
+    public void setPrice(int price) {
+        Price = price;
     }
 
     public String getFoodDescription() {
@@ -31,11 +44,11 @@ public class MenuItem {
         FoodDescription = foodDescription;
     }
 
-    public int getFoodImage() {
+    public String getFoodImage() {
         return FoodImage;
     }
 
-    public void setFoodImage(int foodImage) {
+    public void setFoodImage(String foodImage) {
         FoodImage = foodImage;
     }
 

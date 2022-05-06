@@ -163,15 +163,15 @@ public class NftShop extends AppCompatActivity implements View.OnClickListener, 
         mReference.child("user").child(uID).child("info").child("points").setValue(points);
     }
 
-    private void clearAll() {
-        if (imageLists != null) {
-            imageLists.clear();
-            if (adapter != null) {
-                adapter.notifyDataSetChanged();
-            }
+        private void clearAll() {
+            if (imageLists != null) {
+                imageLists.clear();
+                if (adapter != null) {
+                    adapter.notifyDataSetChanged();
+                }
 
+            }
         }
-    }
 
 
     @Override
